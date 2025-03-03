@@ -13,13 +13,11 @@ class Detail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detail)
 
-        // Получаем данные из Intent
         val name = intent.getStringExtra("MEAL_NAME") ?: "Unknown"
         val area = intent.getStringExtra("MEAL_AREA") ?: "Unknown"
         val thumbUrl = intent.getStringExtra("MEAL_THUMB")
         val instruction = intent.getStringExtra("MEAL_INSTRUCTIONS") ?: "Unknown"
 
-        // Находим элементы в layout и заполняем их
         val nameView: TextView = findViewById(R.id.detail_name)
         val statusView: TextView = findViewById(R.id.detail_status)
         val imageView: ImageView = findViewById(R.id.detail_image)

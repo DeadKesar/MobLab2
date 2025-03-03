@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun onContactItemClicked(item: ContactItem) {
-        // Создаём Intent для перехода к DetailActivity
         val intent = Intent(this, Detail::class.java).apply {
             putExtra("MEAL_NAME", item.strMeal)
             putExtra("MEAL_AREA", item.strArea ?: "Unknown")
@@ -35,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(intent)
 
-        // Toast можно оставить для отладки, если нужно
         Toast.makeText(this, "Contact: ${item.strMeal} clicked!", Toast.LENGTH_SHORT).show()
     }
 

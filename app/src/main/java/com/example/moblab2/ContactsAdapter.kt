@@ -21,7 +21,6 @@ class ContactsAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
     ): ContactViewHolder {
-// создание View из макета для ViewHolder
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.contact_item, parent, false)
         return ContactViewHolder(view, this::onViewHolderClicked)
