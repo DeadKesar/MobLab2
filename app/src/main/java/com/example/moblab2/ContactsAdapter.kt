@@ -53,6 +53,8 @@ class ContactViewHolder(
         itemView.findViewById(R.id.contact_name)
     private val statusView: TextView =
         itemView.findViewById(R.id.contact_status)
+    private val categoryView: TextView =
+        itemView.findViewById(R.id.contact_category)
 
     init {
         itemView.setOnClickListener { onItemClicked(adapterPosition) }
@@ -61,8 +63,8 @@ class ContactViewHolder(
      * Метод для связывания данных с ViewHolder
      */
     fun bind(item: ContactItem) {
-        nameView.text = item.name
-        statusView.text =
-            "Status: ${if (item.isOnline) "online" else "offline"}"
+        nameView.text = item.strMeal
+        statusView.text = "Зона: ${item.strArea ?: "ХЗ"}"
+        categoryView.text = "Категоря: ${item.strCategory ?: "ХЗ"}"
     }
 }
