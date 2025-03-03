@@ -57,7 +57,7 @@ class ContactViewHolder(
         itemView.findViewById(R.id.contact_category)
 
     init {
-        itemView.setOnClickListener { onItemClicked(adapterPosition) }
+        itemView.setOnClickListener { onItemClicked(getAbsoluteAdapterPosition()) }
     }
     /**
      * Метод для связывания данных с ViewHolder
