@@ -12,5 +12,5 @@
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="20"
-        tools:listitem="@layout/contact_item" />
+        tools:listitem="@layout/meal_item" />
 </LinearLayout>

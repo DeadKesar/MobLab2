@@ -21,11 +21,11 @@ class Detail : AppCompatActivity() {
         val nameView: TextView = findViewById(R.id.detail_name)
         val statusView: TextView = findViewById(R.id.detail_status)
         val imageView: ImageView = findViewById(R.id.detail_image)
-        val instrucionView: TextView = findViewById(R.id.detail_instrucions)
+        val instructionView: TextView = findViewById(R.id.detail_instrucions)
 
         nameView.text = name
-        statusView.text = "Area: $area"
-        instrucionView.text = instruction
+        statusView.text = getString(R.string.area, area)
+        instructionView.text = instruction
 
         thumbUrl?.let {
             Glide.with(this)

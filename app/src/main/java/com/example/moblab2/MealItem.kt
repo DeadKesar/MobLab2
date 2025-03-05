@@ -1,9 +1,9 @@
 package com.example.moblab2
 
 /**
- * Модель контакта
+ * Модель еды
  */
-data class ContactItem(
+data class MealItem(
     val strMeal: String,
     val strArea: String?,
     val strMealThumb: String?,

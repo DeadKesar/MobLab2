@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
 
         val list: RecyclerView = findViewById(R.id.list)
         fetchMeals{ meals ->
-            val adapter = ContactsAdapter(meals, this::onContactItemClicked)
+            val adapter = MealAdapter(meals, this::onMealItemClicked)
             list.adapter = adapter
         }
     }
-    private fun onContactItemClicked(item: ContactItem) {
+    private fun onMealItemClicked(item: MealItem) {
         val intent = Intent(this, Detail::class.java).apply {
             putExtra("MEAL_NAME", item.strMeal)
             putExtra("MEAL_AREA", item.strArea ?: "Unknown")
@@ -33,10 +33,10 @@ class MainActivity : AppCompatActivity() {
         }
         startActivity(intent)
 
-        Toast.makeText(this, "Contact: ${item.strMeal} clicked!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Meal: ${item.strMeal} clicked!", Toast.LENGTH_SHORT).show()
     }
 
-    private fun fetchMeals(callback: (List<ContactItem>) -> Unit) {
+    private fun fetchMeals(callback: (List<MealItem>) -> Unit) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val url = URL("https://www.themealdb.com/api/json/v1/1/search.php?f=b")
@@ -44,11 +44,11 @@ class MainActivity : AppCompatActivity() {
                 val jsonString = connection.getInputStream().bufferedReader().use { it.readText() }
                 val jsonObject = JSONObject(jsonString)
                 val mealsArray = jsonObject.getJSONArray("meals")
-                val meals = mutableListOf<ContactItem>()
+                val meals = mutableListOf<MealItem>()
 
                 for (i in 0 until mealsArray.length()) {
                     val mealJson = mealsArray.getJSONObject(i)
-                    val meal = ContactItem(
+                    val meal = MealItem(
                         strMeal = mealJson.getString("strMeal"),
                         strArea = mealJson.optString("strArea", "Где-то"),
                         strMealThumb = mealJson.optString("strMealThumb", ""),
